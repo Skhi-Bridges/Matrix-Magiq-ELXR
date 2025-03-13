@@ -1,0 +1,12 @@
+{
+  "wallet": "3FGkxFX9ErmE6xEzNY38DzAWaRSNwcCEiJ",
+  "currencies": {
+    "BTC":  "3FGkxFX9ErmE6xEzNY38DzAWaRSNwcCEiJ",
+    "ETH":  "0x0f5c2aBf4c5ED3698d15Ca6a60258BF82d2c70E3",
+    "SOL":  "2LyjhsPBv88xwiSDdDgiHGh89QerQegjpxnu17wtLP5a",
+    "USDC": "0x7FAc6d3E3111cCBfDE4409416EC6bd8842d8e561"
+  },
+  "fiat": {
+    "shopify": "https://skhibridges.com/products/matrix-magiq-nft",
+  },
+  }
