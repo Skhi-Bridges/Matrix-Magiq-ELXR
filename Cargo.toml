@@ -1,0 +1,67 @@
+[package]
+name = "matrix-magiq-elxr"
+version = "0.1.0"
+authors = ["Matrix-Magiq Team"]
+edition = "2021"
+description = "Elixir Chain - Parachain focused on kombucha fermentation tracking"
+repository = "https://github.com/Skhi-Bridges/Matrix-Magiq-ELXR"
+license = "GPL-3.0"
+
+[workspace]
+members = [
+    "runtime",
+    "node",
+    "pallets/*",
+]
+
+[dependencies]
+# Substrate dependencies
+frame-support = { git = "https://github.com/paritytech/substrate.git", branch = "master", default-features = false }
+frame-system = { git = "https://github.com/paritytech/substrate.git", branch = "master", default-features = false }
+sp-runtime = { git = "https://github.com/paritytech/substrate.git", branch = "master", default-features = false }
+sp-std = { git = "https://github.com/paritytech/substrate.git", branch = "master", default-features = false }
+sp-core = { git = "https://github.com/paritytech/substrate.git", branch = "master", default-features = false }
+sp-io = { git = "https://github.com/paritytech/substrate.git", branch = "master", default-features = false }
+
+# Polkadot dependencies
+xcm = { git = "https://github.com/paritytech/polkadot.git", branch = "master", default-features = false }
+xcm-executor = { git = "https://github.com/paritytech/polkadot.git", branch = "master", default-features = false }
+polkadot-parachain = { git = "https://github.com/paritytech/polkadot.git", branch = "master", default-features = false }
+
+# Quantum-resistant crypto (Example - replace with your specific dependencies)
+pqcrypto = { version = "0.12.0", default-features = false }
+
+# Error correction dependencies 
+reed-solomon-erasure = { version = "4.0", default-features = false }
+
+# Integration with other Matrix-Magiq components
+matrix-magiq-imrt = { path = "../Matrix-Magiq-IMRT", default-features = false, optional = true }
+matrix-magiq-liquidity = { path = "../Matrix-Magiq-Liquidity", default-features = false, optional = true }
+matrix-magiq-eigenlayer = { path = "../Matrix-Magiq-Eigenlayer", default-features = false, optional = true }
+
+[features]
+default = ["std"]
+std = [
+    "frame-support/std",
+    "frame-system/std",
+    "sp-runtime/std",
+    "sp-std/std",
+    "sp-core/std",
+    "sp-io/std",
+    "xcm/std",
+    "xcm-executor/std",
+    "polkadot-parachain/std",
+    "pqcrypto/std",
+    "reed-solomon-erasure/std",
+    "matrix-magiq-imrt/std",
+    "matrix-magiq-liquidity/std",
+    "matrix-magiq-eigenlayer/std",
+]
+runtime-benchmarks = [
+    "frame-support/runtime-benchmarks",
+    "frame-system/runtime-benchmarks",
+]
+try-runtime = [
+    "frame-support/try-runtime",
+    "frame-system/try-runtime",
+]

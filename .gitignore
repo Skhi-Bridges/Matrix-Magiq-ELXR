@@ -1,0 +1,33 @@
+﻿# Rust
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# IDE
+.vscode/
+.idea/
+*.iml
+.DS_Store
+
+# Substrate
+.wasm-binaries/
+
+# Build artifacts
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+
+# Testing artifacts
+*.gcda
+*.gcno
+*.profraw
+
+# Documentation
+/doc/
+/book/
+
+# Logs
+*.log
+*.log.*
