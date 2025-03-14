@@ -1,31 +1,16 @@
-// Kombucha Registry Pallet
-// Converted from kombucha-registry.txt
-
-use frame_support::{decl_module, decl_storage, decl_event, decl_error, ensure, dispatch::DispatchResult};
-use frame_system::{self as system, ensure_signed};
-use sp_std::prelude::*;
+use leptos::*;
 use permaweb_lib::profile::{Profile, Zone, Wallet};
 
-pub trait Config: system::Config {
-    type Event: From<Event<Self>> + Into<<Self as system::Config>::Event>;
-}
-
-// Key data structures for kombucha fermentation tracking
-#[derive(Encode, Decode, Clone, PartialEq, Eq, RuntimeDebug)]
-pub struct KombuchaBatch {
-    id: Vec<u8>,
-    producer: T::AccountId,
-    scoby_id: Vec<u8>,
-    ingredients: Vec<Ingredient>,
-    fermentation_start: T::BlockNumber,
-    fermentation_end: Option<T::BlockNumber>,
-    certifications: Vec<Certification>,
-    flavor_profile: FlavorProfile,
-    quality_score: Option<u32>,
-}
-
-// Implementation for Kombucha tracking based on the kombucha-registry.txt content
-#![cfg_attr(not(feature = "std"), no_std)]
+// Registry Component for Kombucha Tracking
+#[component]
+pub fn KombuchaRegistry() -> impl IntoView {
+    // ActorX implementation with Permaweb Profile
+    let profile = Profile::new("ELXR-Registry");
+    let zone = Zone::new(&profile);
+    let wallet = Wallet::new(&profile);
+    
+    // Implementation based on kombucha-registry.txt logic
+    // #![cfg_attr(not(feature = "std"), no_std)]
 
 use ink_lang as ink;
 
@@ -359,59 +344,14 @@ mod kombucha_registry {
                 scobys_by_facility: StorageHashMap::new(),
                 recipes_by_facility: StorageHashMap::new(),
                 facilities_count: 0,
-                sco
-
-// ActorX implementation with permaweb integration
-pub struct ActorX {
-    profile: Profile,
-    zone: Zone,
-    wallet: Wallet,
-}
-
-impl ActorX {
-    pub fn new() -> Self {
-        let profile = Profile::new("ELXR-Registry");
-        let zone = Zone::new(&profile);
-        let wallet = Wallet::new(&profile);
-        
-        Self {
-            profile,
-            zone,
-            wallet,
-        }
-    }
+                sco (condensed for component integration)
     
-    pub fn register_batch(&self, batch: KombuchaBatch) -> DispatchResult {
-        // Implementation for registering a new batch
-        Ok(())
-    }
-}
-
-// Error correction integrations
-mod error_correction {
-    use super::*;
-    
-    // Classical error correction
-    pub mod classical {
-        pub fn correct_errors(data: &[u8]) -> Vec<u8> {
-            // Reed-Solomon implementation
-            data.to_vec()
-        }
-    }
-    
-    // Bridge error correction
-    pub mod bridge {
-        pub fn correct_interface_errors(data: &[u8]) -> Vec<u8> {
-            // Bridge protocol implementation
-            data.to_vec()
-        }
-    }
-    
-    // Quantum error correction
-    pub mod quantum {
-        pub fn correct_quantum_errors(data: &[u8]) -> Vec<u8> {
-            // Surface code implementation
-            data.to_vec()
-        }
+    view! {
+        <div class="kombucha-registry">
+            <h2>"Kombucha Registry"</h2>
+            <div class="registry-interface">
+                // Registry interface components
+            </div>
+        </div>
     }
 }
